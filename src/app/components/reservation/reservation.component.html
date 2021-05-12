@@ -1,0 +1,22 @@
+<p>reservation works!</p>
+<div>
+    <div>
+        <select (change)="selectHotel($event)">
+            <option *ngFor="let i of hotels" >{{i.name}}</option>
+        </select>
+
+    </div>
+    <div *ngFor="let i of reservation">
+        <div>{{getDate(i.start_date.toString()) + ' : ' + getDate(i.stop_date.toString())}}</div>
+    </div>
+    <app-range-caledar (saveDate)="dateSelected($event)"></app-range-caledar>
+    <button (click)="update()">View free rooms</button>
+    <br/>
+    <div *ngIf="rooms.length>0">
+        <label>select any free room</label>
+        <br/>
+        <button (click)="addReservation(room)"  *ngFor="let room of rooms">№{{ room.value_number }} with badroms {{room.count_number}}</button>
+    </div>
+</div>
+
+

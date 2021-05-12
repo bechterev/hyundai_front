@@ -1,0 +1,17 @@
+<p>Select period for statistic</p>
+
+<app-range-caledar (saveDate)="dateSelected($event)"></app-range-caledar>
+
+<div *ngIf="query != null">
+<p>Report activity rooms</p>
+<div>
+    <table>
+        <tr *ngFor="let room of query">
+            <td>{{room.days}}</td>
+            <td>{{room.hotel}}</td>
+            <td>{{room.mon}}</td>
+            <td>{{room.value_number}}</td>
+        </tr>
+    </table>
+</div>
+</div>
